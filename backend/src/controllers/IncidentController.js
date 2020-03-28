@@ -51,6 +51,10 @@ module.exports = {
         return response.status(401).json({ error: 'Operação não permitida'});
       }
 
+      // if (incident.id != id) {
+      //   return response.status(404).json({ error: 'Id do caso não encontrado'});
+      // }
+
       await connection('incidents').where('id', id).delete();
 
       return response.status(204).send();
